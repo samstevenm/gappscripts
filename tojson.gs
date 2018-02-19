@@ -3,10 +3,10 @@
 //====================================================================||
 
 //var emailAddress = "emailtosalesforce@v-1kwer43cl0yzcmes1dmcusodlczba5ca75ti344n4xw4pxlcyq.6c-p09uae.cs63.le.sandbox.salesforce.com";  //email to SalesForce Email SandBox
-var emailAddress ="emailtosalesforce@2kg0rvcepytvbe6hrv3b8takh6taxfca37katvqw18p8j3wmjt.8-ldaheao.na8.le.salesforce.com"; //email to SalesForce Email Live
-//var emailAddress ="samstevenm@gmail.com"; //email to SalesForce Email Live
-var subject = "Uni Pricer JSON"; //email subject
-var data= "Email body has no content. Something went wrong."; //initialize data, this will be the email body
+//var emailAddress ="emailtosalesforce@2kg0rvcepytvbe6hrv3b8takh6taxfca37katvqw18p8j3wmjt.8-ldaheao.na8.le.salesforce.com"; //email to SalesForce Email Live
+var emailAddress ="samstevenm@gmail.com"; //email to SalesForce Email Live
+var subject = "Uni Pricer JSON Data"; //email subject
+var data= "Email_body_has_no_content."; //initialize data, this will be the email body
 var refLink= "SalesForce_Reflink_not_specified."; //initialize refLink, if something goes wrong it
 var personalRecordEmail= "samstevenm@gmail.com" 
 
@@ -33,7 +33,7 @@ function sendEmails() {
   
   for (var i = 1; i <= numRows; i++) {
     for (var j = 1; j <= numCols; j++) {
-      var title = titles.getCell(i,j).getValue().replace(/[^A-Z0-9]+/ig, "_"); //get rid of bad characters
+      var title = titles.getCell(i,j).getValue().toString().replace(/[^A-Z0-9]+/ig, "_"); //get rid of bad characters
       var response = responses.getCell(i,j).getValue().toString().trim().replace(/,/g, '').replace(/\s\s+/g, ',').replace(/\n/g, ',').split(","); //clean
       var response = JSON.stringify(response); //make it JSON
 
